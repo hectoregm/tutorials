@@ -10,19 +10,28 @@ describe('Phonecat App', function() {
       browser.get('app/index.html');
     });
 
+    it('should render phone specific links', function() {
+      var query = element(by.model('query'));
+      query.sendKeys('nexus');
+      element(by.css('.phones li a')).click();
+      browser.getLocationAbsUrl().then(function(url) {
+        expect(url.split('#')[1]).toBe('/phones/nexus-s');
+      });
+    });
+
     it('should filter the phone list as user types into the search box', function() {
 
       var phoneList = element.all(by.repeater('phone in phones'));
       var query = element(by.model('query'));
 
-      expect(phoneList.count()).toBe(3);
+      expect(phoneList.count()).toBe(20);
 
       query.sendKeys('nexus');
       expect(phoneList.count()).toBe(1);
 
       query.clear();
       query.sendKeys('motorola');
-      expect(phoneList.count()).toBe(2);
+      expect(phoneList.count()).toBe(8);
     });
 
     it('should display the current filter value in the title bar', function() {

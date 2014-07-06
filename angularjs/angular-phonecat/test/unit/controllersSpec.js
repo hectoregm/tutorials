@@ -4,7 +4,16 @@
 
 describe('PhoneCat controllers', function() {
 
+  beforeEach(function() {
+    this.addMatchers({
+      toEqualData: function(expected) {
+        return angular.equals(this.actual, expected);
+      }
+    });
+  });
+
   beforeEach(module('phonecatApp'));
+  beforeEach(module('phonecatServices'));
 
 
   describe('PhoneListCtrl', function() {
@@ -20,10 +29,10 @@ describe('PhoneCat controllers', function() {
     }));
 
     it('should create phones model with 2 phones fetched from xhr', function() {
-      expect(scope.phones).toBeUndefined();
+      expect(scope.phones).toEqualData([]);
       $httpBackend.flush();
 
-      expect(scope.phones).toEqual([{name: 'Nexus S'}, {name: 'Motorola DROID'}]);
+      expect(scope.phones).toEqualData([{name: 'Nexus S'}, {name: 'Motorola DROID'}]);
     });
 
     it('should set the default value of orderProp model', function() {
@@ -32,12 +41,18 @@ describe('PhoneCat controllers', function() {
   });
 
   describe('PhoneDetailCtrl', function() {
-    var scope, ctrl, $httpBackend;
+    var scope, ctrl, $httpBackend,
+    xyzPhoneData = function() {
+      return {
+        name: 'phone xyz',
+        images: ['images/url1.png', 'images/url2.png']
+      };
+    }
 
     beforeEach(inject(function(_$httpBackend_, $rootScope, $routeParams, $controller) {
       $httpBackend = _$httpBackend_;
       $httpBackend.expectGET('phones/xyz.json').
-        respond({name: 'phone xyz'});
+        respond(xyzPhoneData());
 
       $routeParams.phoneId = 'xyz';
       scope = $rootScope.$new();
@@ -45,10 +60,10 @@ describe('PhoneCat controllers', function() {
     }));
 
     it('should fetch phone detail', function() {
-      expect(scope.phone).toBeUndefined();
+      expect(scope.phone).toEqualData({});
       $httpBackend.flush();
 
-      expect(scope.phone).toEqual({name: 'phone xyz'});
+      expect(scope.phone).toEqualData(xyzPhoneData());
     });
   });
 });

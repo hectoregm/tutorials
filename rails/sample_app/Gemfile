@@ -3,9 +3,10 @@ ruby '2.1.2'
 #ruby-gemset=railstutorial
 
 gem 'rails', '4.1.4'
+gem 'pg'
+
 group :development, :test do
   gem 'spring-commands-rspec'
-  gem 'sqlite3'
   gem 'rb-fsevent', require: false
   gem 'rspec-rails'
   gem 'guard-bundler'
@@ -32,6 +33,5 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end

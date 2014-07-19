@@ -4,6 +4,9 @@ ruby '2.1.2'
 
 gem 'rails', '4.1.4'
 gem 'pg'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
   gem 'spring-commands-rspec'

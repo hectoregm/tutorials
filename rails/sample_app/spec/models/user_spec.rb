@@ -18,6 +18,12 @@ RSpec.describe User, :type => :model do
   it { is_expected.to respond_to(:admin) }
   it { is_expected.to respond_to(:microposts) }
   it { is_expected.to respond_to(:feed) }
+  it { is_expected.to respond_to(:relationships) }
+  it { is_expected.to respond_to(:followed_users) }
+  it { is_expected.to respond_to(:reverse_relationships) }
+  it { is_expected.to respond_to(:followers) }
+  it { is_expected.to respond_to(:following?) }
+  it { is_expected.to respond_to(:follow!) }
 
   it { is_expected.to be_valid }
   it { is_expected.not_to be_admin }
@@ -29,6 +35,30 @@ RSpec.describe User, :type => :model do
     end
 
     it { is_expected.to be_admin }
+  end
+
+  describe "following" do
+    let(:other_user) { FactoryGirl.create(:user) }
+    before do
+      @user.save
+      @user.follow!(other_user)
+    end
+
+    it { should be_following(other_user) }
+    it { expect(@user.followed_users).to include(other_user) }
+
+    describe "and unfollowing" do
+      before { @user.unfollow!(other_user) }
+
+      it { should_not be_following(other_user) }
+      it { expect(@user.followed_users).to_not include(other_user) }
+    end
+
+    describe "followed_user" do
+      subject { other_user }
+      it { expect(other_user.followers).to include(@user) }
+    end
+
   end
 
   describe "micropost associations" do

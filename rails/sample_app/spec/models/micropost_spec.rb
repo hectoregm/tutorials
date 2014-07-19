@@ -18,4 +18,15 @@ RSpec.describe Micropost, :type => :model do
     before { @micropost.user_id = nil }
     it { is_expected.not_to be_valid }
   end
+
+  describe "with blank content" do
+    before { @micropost.content = "" }
+    it { is_expected.not_to be_valid }
+  end
+
+  describe "with content that is too long" do
+    before { @micropost.content = "a" * 141 }
+    it { is_expected.not_to be_valid }
+  end
+
 end

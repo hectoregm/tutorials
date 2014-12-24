@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F93F1D341A4A5A0C004E774A /* ToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F93F1D331A4A5A0C004E774A /* ToDoItem.m */; };
 		F959C0251A4A21F300951044 /* AddToDoItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F959C0241A4A21F300951044 /* AddToDoItemViewController.m */; };
 		F959C0281A4A229900951044 /* ToDoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F959C0271A4A229900951044 /* ToDoListTableViewController.m */; };
 		F9752ABC1A49C79300523A8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F9752ABB1A49C79300523A8E /* main.m */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F93F1D321A4A5A0C004E774A /* ToDoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItem.h; sourceTree = "<group>"; };
+		F93F1D331A4A5A0C004E774A /* ToDoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoItem.m; sourceTree = "<group>"; };
 		F959C0231A4A21F300951044 /* AddToDoItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToDoItemViewController.h; sourceTree = "<group>"; };
 		F959C0241A4A21F300951044 /* AddToDoItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToDoItemViewController.m; sourceTree = "<group>"; };
 		F959C0261A4A229900951044 /* ToDoListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoListTableViewController.h; sourceTree = "<group>"; };
@@ -88,6 +91,8 @@
 				F959C0271A4A229900951044 /* ToDoListTableViewController.m */,
 				F959C0231A4A21F300951044 /* AddToDoItemViewController.h */,
 				F959C0241A4A21F300951044 /* AddToDoItemViewController.m */,
+				F93F1D321A4A5A0C004E774A /* ToDoItem.h */,
+				F93F1D331A4A5A0C004E774A /* ToDoItem.m */,
 				F9752AC31A49C79300523A8E /* Main.storyboard */,
 				F9752AC61A49C79300523A8E /* Images.xcassets */,
 				F9752AC81A49C79300523A8E /* LaunchScreen.xib */,
@@ -225,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9752ABF1A49C79300523A8E /* AppDelegate.m in Sources */,
+				F93F1D341A4A5A0C004E774A /* ToDoItem.m in Sources */,
 				F959C0281A4A229900951044 /* ToDoListTableViewController.m in Sources */,
 				F9752ABC1A49C79300523A8E /* main.m in Sources */,
 				F959C0251A4A21F300951044 /* AddToDoItemViewController.m in Sources */,
